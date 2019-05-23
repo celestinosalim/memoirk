@@ -9,10 +9,10 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
+    def save(self, *args, **kwargs):
         #rewriting the save method on profile to change the image size
         #that is being saved in our database.
-        super().save()
+        super().save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
